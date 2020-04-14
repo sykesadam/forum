@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  include ../partials/messages.jade
+
+  main(class="posts-main")
+    h1 Forum Posts
+    div(class="posts")
+      each post in allPosts
+        article(class="post")
+          a(href="/posts/" + post._id)
+            h2= post.title
+            p= post.author
+        

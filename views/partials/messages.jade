@@ -1,0 +1,19 @@
+if error_msg != '' || success_msg != '' || error != '' || typeof errors != 'undefined'
+	div(class="divider")
+
+if typeof errors != 'undefined'
+	each error in errors
+		div(class="alert alert-warning")
+			= error.msg
+
+if success_msg != ''
+	div(class="alert alert-success")
+		= success_msg
+
+if error_msg != ''
+	div(class="alert alert-danger")
+		= error_msg
+
+if error != ''
+	div(class="alert alert-danger")
+		= error

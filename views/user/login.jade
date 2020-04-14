@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    main
+      .form-box
+        h1 Login
+        form(method="post")
+          input(type="text", placeholder="Name", class="inputfield-text", name="username", value= name)
+          input(type="password", placeholder="Password", class="inputfield-text", name="password", value= password)
+          button(type="submit", class="submit-btn") Submit
+          include ../partials/messages.jade
+        a(href="/register") No account? Register here.

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  include ./partials/messages
+
+  main.startpage
+    section.latest-posts
+      a(href="/posts/create-post")
+        i(class="fas fa-plus")
+      h1 Latest Posts
+      each post in topTenPosts
+        article
+          a(href="/posts/" + post._id)
+            h2= post.title
+            span= post.author
+        
+//- if user
+//-         div
+//-           a(href="/posts/create-post") Create Post

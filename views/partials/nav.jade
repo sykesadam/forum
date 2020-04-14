@@ -1,0 +1,23 @@
+nav
+    .logo
+        a(href="/") Forum+
+    .search
+        .search__bar
+            button(onclick="toggleCategories()") =
+            input(type="text" placeholder="Search")
+        .search__categories
+            label Categories
+            ul
+                each category in categories
+                    a(href="/category/" + category.name)
+                        li= category.name
+
+    .user-button
+        if user
+            a(href="/profile" class="profile")
+                i(class="far fa-user-circle")
+            a(href="/logout") 
+                i(class="fas fa-sign-out-alt")
+        else 
+            a(href="/login")
+                i(class="fas fa-sign-in-alt")

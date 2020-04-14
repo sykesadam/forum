@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  include ../partials/messages.jade
+  h1 Profile
+  h2= user.username
+  button(onclick="deleteProfile()") Delete
+
+  a(href="/") Startpage

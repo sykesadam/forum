@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  main
+    .form-box
+      h1 Register
+      form(method="post" class="register-form")
+        input(type="text", placeholder="Username", class="inputfield-text", name="username", value= username)
+        input(type="password", placeholder="Password", class="inputfield-text", name="password", value= password)
+        input(type="password", placeholder="Password again", class="inputfield-text", name="password2", value= password2)
+        button(type="submit", class="submit-btn") Create Account
+      include ../partials/messages.jade
+  
+  

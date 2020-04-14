@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    div(style="background: whitesmoke")
+        if createdByUser
+            button Edit
+            button Delete
+        
+    main(class="post-main")
+        div(class="post-whole")
+            h2= post.title
+            h2= post.author
+            p= post.body
+        
+        if post.comments
+            each comment in post.comments
+                article(style="border:2px solid black; display: inline-block")
+                    p
+                        b= comment.commenterName + " - "
+                        =comment.body
+                    p= comment.date
+        form(method="post")
+            textarea(name="postComment", cols="30", rows="10", class="comment-textarea")
+            button(type="submit" class="comment-btn") Comment
+        include ../partials/messages.jade

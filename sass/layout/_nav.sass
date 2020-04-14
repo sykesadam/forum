@@ -1,0 +1,85 @@
+$nav: #F46036;
+
+nav 
+    display: flex
+    padding: 1rem
+    background: $nav
+    align-items: center
+    justify-content: center
+    margin: 0 0 1rem
+    .logo
+        flex: 1
+        font-size: 2rem
+        color: #FFFDF7
+        margin-right: auto
+        display: block
+    a 
+        color: #FFFDF7
+    a:hover
+        color: #fffdf793
+
+.search
+    display: flex
+    align-items: center
+    flex-direction: column
+    position: relative
+.search__bar
+    display: flex
+    z-index: 200
+    // justify-content: center
+    input
+        flex: 1
+        padding: .5rem
+        font-size: 1rem
+        border-radius: 0 .2rem .2rem 0
+        border: 0
+        box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.5)
+        background: #FFFDF7
+    button
+        flex: 1
+        background: #fffdf7c0
+        box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.5)
+        padding: .5rem  
+        font-size: 1rem 
+        border-radius: .2rem 0 0 .2rem
+        border: 0
+        cursor: pointer
+.search__categories
+    background: #fefefe
+    z-index: 100
+    position: absolute
+    // background: $nav
+    top: 2.2rem
+    width: 100%
+    display: none
+    transition: all .3s ease
+    transform: translateY(-2rem)
+    opacity: 0
+    color: #333
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.5)
+    border-radius: 0 0 .2rem .2rem
+    label
+        font-size: 1.1rem
+        text-align: center
+        padding: 1rem 0
+        
+        display: block
+    a
+        color: #333
+        display: block
+        font-size: 1.1rem
+        padding: 1rem
+        background: rgba(0, 0, 0, 0.05)
+    a:hover 
+        color: rgba(0, 0, 0, 0.3)
+    // a:nth-child(odd)
+.show 
+    opacity: 1
+    transform: translateY(0)
+.user-button
+    flex: 1
+    text-align: right
+    margin-left: auto
+.user-button a 
+    margin: 0 .5rem 0
+    font-size: 1.5rem

@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  include ../partials/messages.jade
+  h1= category.name
+
+  div
+    each post in posts
+        div
+            a(href="/posts/" + post._id)
+                h3= post.title
+                p= post.author

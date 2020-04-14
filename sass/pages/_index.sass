@@ -1,0 +1,31 @@
+main
+    display: flex
+    justify-content: center
+.latest-posts
+    display: flex
+    flex-direction: column
+    background: #F46036
+    border-radius: .1rem
+    h1
+        color: #fefefef3
+        font-size: 1.5rem
+        text-align: center
+        background: rgba(0, 0, 0, 0.25)
+        padding: 2rem
+    article
+        margin: 0 .2rem;
+    article:nth-child(odd)
+        background: rgba(0, 0, 0, 0.05)
+    a
+        display: flex
+        align-items: center;
+        justify-content: space-between
+        color: #333
+        padding: .5rem
+        h2
+            font-size: 1.1rem
+            margin-right: 2rem
+        span
+            font-size: 0.8rem
+    a:hover
+        background: rgba(0, 0, 0, 0.1)

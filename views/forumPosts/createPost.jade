@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  main(class="create-post-main")
+    div(class="form-container")
+      h1 Create a Post
+      form(method="post" class="create-post-form")
+        input(type="text", placeholder="Title", name="postTitle" class="inputfield-text" required)
+        textarea(cols="30", rows="10", placeholder="Post...", name="postText" required)
+        label Category
+        select(name="category" class="categories-select" required)
+          option(value="none") 
+          each category in categories
+            option(value= category.name)= category.name
+        button(type="submit", class="submit-btn") Submit
+      
+      include ../partials/messages.jade
