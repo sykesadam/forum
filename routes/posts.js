@@ -14,11 +14,6 @@ router.get("/", async (req, res, next) => {
 	res.render("./forumPosts/posts", { user: req.user, allPosts, categories });
 });
 
-// router.get("/create-post", ensureAuthenticated, async (req, res, next) => {
-// 	const categoryData = await Category.find();
-// 	console.log(categoryData);
-// 	res.render("./forumPosts/createPost", { categories: categoryData.name });
-// });
 router.get("/create-post", ensureAuthenticated, async (req, res, next) => {
 	const categoryData = await Category.find();
 	res.render("./forumPosts/createPost", {
@@ -44,6 +39,7 @@ router.post(
 			await post
 				.save()
 				.then((p) => {
+					res.redirect("/posts/" + p._id);
 					req.flash("success_msg", "Post Created");
 				})
 				.catch((err) => console.log(err));
@@ -83,7 +79,7 @@ router.post("/:id", (req, res, next) => {
 		Post.updateOne(
 			{ _id: req.params.id },
 			{ $push: { comments: comment } },
-			function(error, success) {
+			function (error, success) {
 				if (error) console.log(error);
 				else {
 					req.flash("success_msg", "Commented");

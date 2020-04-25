@@ -7,19 +7,19 @@ block content
             button Delete
         
     main(class="post-main")
-        div(class="post-whole")
-            h2= post.title
+        div(class="post-alone")
+            h1= post.title
             h2= post.author
             p= post.body
+            h3(class="date")= "Posted " + post.created
         
-        if post.comments
-            each comment in post.comments
-                article(style="border:2px solid black; display: inline-block")
-                    p
-                        b= comment.commenterName + " - "
-                        =comment.body
-                    p= comment.date
-        form(method="post")
-            textarea(name="postComment", cols="30", rows="10", class="comment-textarea")
-            button(type="submit" class="comment-btn") Comment
-        include ../partials/messages.jade
+            if post.comments
+                each comment in post.comments
+                    article(class="post-comment")
+                        h4= comment.commenterName
+                        p= comment.body
+                        p(class="post-comment__date date")= "Commented " +comment.date
+            form(method="post")
+                textarea(name="postComment", cols="30", rows="5", class="comment-textarea")
+                button(type="submit" class="comment-btn") Comment
+            include ../partials/messages.jade

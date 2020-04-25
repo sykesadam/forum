@@ -2,11 +2,12 @@ extends ../layout
 
 block content
   include ../partials/messages.jade
-  h1= category.name
 
-  div
-    each post in posts
-        div
-            a(href="/posts/" + post._id)
-                h3= post.title
-                p= post.author
+  main
+    div(class="category")
+      h1(class="category__title")= category.name
+      each post in posts
+        a(class="category__post" href="/posts/" + post._id)
+          h2= post.title
+          h3= post.author
+          p(class="date")= post.created

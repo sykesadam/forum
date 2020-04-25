@@ -208,7 +208,7 @@ textarea {
     display: block;
     color: #fefefe; }
 
-.submit-btn {
+.submit-btn, .comment-btn {
   padding: .5rem .75rem;
   font-size: 1rem;
   background: #F46036;
@@ -217,6 +217,9 @@ textarea {
   color: #153243;
   font-weight: bolder;
   width: 100%; }
+
+.comment-btn {
+  color: #fefefe; }
 
 main {
   display: flex;
@@ -292,6 +295,33 @@ main {
   .post p {
     text-align: right; }
 
+.post-alone {
+  display: flex;
+  flex-direction: column;
+  color: #fefefe; }
+  .post-alone h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: .4rem 0; }
+  .post-alone h2 {
+    font-weight: 600; }
+  .post-alone p {
+    margin: .3rem 0;
+    padding: .2rem 0; }
+  .post-alone h3 {
+    font-size: .8rem; }
+
+.post-comment {
+  margin: .25rem .5rem;
+  padding: .5rem;
+  border-left: 2px solid rgba(0, 0, 0, 0.4); }
+  .post-comment h4 {
+    font-weight: 600; }
+
+.post-comment__date {
+  font-size: .8rem;
+  text-align: right; }
+
 .create-post-main {
   flex-direction: column; }
 
@@ -312,3 +342,28 @@ main {
     margin-top: 1rem;
     color: #fefefed3;
     font-size: 1.2rem; }
+
+.category {
+  display: flex;
+  flex-direction: column; }
+  .category h1 {
+    font-size: 2rem;
+    color: #fefefe;
+    text-align: center;
+    margin-bottom: .5rem; }
+
+.category__post {
+  padding: .5rem;
+  background: rgba(255, 255, 255, 0.8);
+  margin: .2rem 0;
+  box-shadow: -3px 0 0 #F46036;
+  display: block;
+  color: #333;
+  transition: all .3s ease-in; }
+  .category__post h2 {
+    color: #F46036; }
+  .category__post:hover, .category__post:focus {
+    box-shadow: -4px 0 0 #F46036;
+    background: white; }
+  .category__post h3, .category__post p {
+    text-align: right; }
