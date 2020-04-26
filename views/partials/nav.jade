@@ -4,13 +4,16 @@ nav
     .search
         .search__bar
             button(onclick="toggleCategories()") =
-            input(type="text" placeholder="Search")
+            input(type="text" placeholder="Search" class="search__input")
         .search__categories
             label Categories
             ul
                 each category in categories
                     a(href="/category/" + category.name)
                         li= category.name
+        .search__results
+            label Results
+            ul
 
     .user-button
         if user

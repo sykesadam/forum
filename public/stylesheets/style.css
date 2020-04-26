@@ -99,7 +99,7 @@ nav {
     border: 0;
     cursor: pointer; }
 
-.search__categories {
+.search__categories, .search__results {
   background: #fefefe;
   z-index: 100;
   position: absolute;
@@ -112,18 +112,18 @@ nav {
   color: #333;
   box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.5);
   border-radius: 0 0 .2rem .2rem; }
-  .search__categories label {
+  .search__categories label, .search__results label {
     font-size: 1.1rem;
     text-align: center;
     padding: 1rem 0;
     display: block; }
-  .search__categories a {
+  .search__categories a, .search__results a {
     color: #333;
     display: block;
     font-size: 1.1rem;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.05); }
-  .search__categories a:hover {
+  .search__categories a:hover, .search__results a:hover {
     color: rgba(0, 0, 0, 0.3); }
 
 .show {

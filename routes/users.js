@@ -83,7 +83,7 @@ router.post(
 						password,
 					});
 
-					bcrypt.hash(newUser.password, 10, function(err, hash) {
+					bcrypt.hash(newUser.password, 10, function (err, hash) {
 						if (err) console.log(err);
 						newUser.password = hash;
 						newUser.save().then((user) => {
@@ -109,7 +109,7 @@ router.post(
 	})
 );
 
-router.get("/login", function(req, res, next) {
+router.get("/login", function (req, res, next) {
 	res.render("./user/login");
 });
 

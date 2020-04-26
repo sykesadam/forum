@@ -9,7 +9,6 @@ block content
         textarea(cols="30", rows="10", placeholder="Post...", name="postText" required)
         label Category
         select(name="category" class="categories-select" required)
-          option(value="none") 
           each category in categories
             option(value= category.name)= category.name
         button(type="submit", class="submit-btn") Submit

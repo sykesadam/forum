@@ -1,9 +1,13 @@
-function deleteProfile() {
-	fetch("http://localhost:3000/profile", {
+const uri = "http://localhost:3000/";
+
+async function deleteProfile() {
+	let action = await fetch(uri + "profile", {
 		method: "delete",
 		mode: "cors",
 		credentials: "same-origin",
-	}).then((response) => response.json());
+	});
+	let data = await action.json();
+	console.log(data);
 }
 
 function toggleCategories() {
@@ -20,6 +24,42 @@ function toggleCategories() {
 		}, 0);
 		box.style.display = "initial";
 	}
+}
+function search() {
+	const searchInput = document.querySelector(".search__input");
+	const li = document.createElement("li");
+	const box = document.querySelector(".search__results");
+	const ul = box.querySelector("ul");
+
+	searchInput.addEventListener("keyup", (e) => {
+		if (searchInput.value.length > 0) {
+			setTimeout(() => {
+				box.classList.add("show");
+			}, 0);
+			box.style.display = "initial";
+			const data = fetchSearch(searchInput.value);
+			console.log(data);
+			// data.forEach((d) => {
+			ul.appendChild(li).innerText = data;
+			// });
+		} else {
+			box.classList.remove("show");
+			setTimeout(() => {
+				box.style.display = "none";
+			}, 300);
+		}
+	});
+}
+search();
+
+function fetchSearch(searchvalue) {
+	fetch(uri + "search/" + searchvalue, {
+		method: "get",
+		mode: "no-cors",
+		credentials: "same-origin",
+	}).then((response) => {
+		return response.json();
+	});
 }
 
 function timeSince(date) {
@@ -58,3 +98,12 @@ function dateFormat() {
 }
 
 dateFormat();
+
+async function deletePost(id) {
+	let response = await fetch(uri + "posts/" + id, {
+		method: "DELETE",
+	});
+	let data = await response.json();
+
+	console.log(data);
+}

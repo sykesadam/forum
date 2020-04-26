@@ -79,7 +79,7 @@ router.post("/:id", (req, res, next) => {
 		Post.updateOne(
 			{ _id: req.params.id },
 			{ $push: { comments: comment } },
-			function (error, success) {
+			(error, success) => {
 				if (error) console.log(error);
 				else {
 					req.flash("success_msg", "Commented");
@@ -88,6 +88,21 @@ router.post("/:id", (req, res, next) => {
 				}
 			}
 		);
+	} else {
+		req.flash("error_msg", "You need to login to comment");
+		throw createError(403, "Not logged in");
+	}
+});
+
+router.delete("/:id", (req, res, next) => {
+	if (req.user) {
+		Post.findOneAndDelete({ _id: req.params.id }, (error, success) => {
+			if (error) console.log(error);
+			else {
+				res.redirect("/");
+				req.flash("success_msg", "Post deleted.");
+			}
+		});
 	} else {
 		req.flash("error_msg", "You need to login to comment");
 		throw createError(403, "Not logged in");

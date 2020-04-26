@@ -12,9 +12,7 @@ const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
 router.get(
 	"/",
 	ash(async (req, res, next) => {
-		const topTenPosts = await Post.find()
-			.sort("-created")
-			.limit(5);
+		const topTenPosts = await Post.find().sort("-created").limit(5);
 		const categories = await Category.find();
 		res.render("index", { user: req.user, topTenPosts, categories });
 	})
@@ -34,6 +32,20 @@ router.get(
 			posts,
 			categories,
 		});
+	})
+);
+
+router.get(
+	"/search/:searchValue",
+	ash(async (req, res, next) => {
+		res.set("Access-Control-Allow-Origin", "*");
+		const search = req.params.searchValue;
+		const posts = await Post.find({
+			title: { $regex: search, $options: "i" },
+		});
+
+		console.log(posts);
+		res.end();
 	})
 );
 

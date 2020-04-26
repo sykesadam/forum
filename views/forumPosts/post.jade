@@ -1,10 +1,9 @@
 extends ../layout
 
 block content
-    div(style="background: whitesmoke")
-        if createdByUser
-            button Edit
-            button Delete
+    if createdByUser
+        div(style="background: whitesmoke")
+        button(onclick="deletePost('"+ post._id +"')") Delete
         
     main(class="post-main")
         div(class="post-alone")
