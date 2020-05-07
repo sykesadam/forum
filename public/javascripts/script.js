@@ -51,7 +51,7 @@ function search() {
 	});
 }
 search();
-
+// mass problem här med grejer.
 function fetchSearch(searchvalue) {
 	fetch(uri + "search/" + searchvalue, {
 		method: "get",
