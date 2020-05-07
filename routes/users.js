@@ -30,16 +30,15 @@ router.get(
 	})
 );
 
-router.delete("/profile", (req, res) => {
+router.delete("/profile", ensureAuthenticated, (req, res) => {
 	User.where().findOneAndDelete({ _id: req.user.id }, (err, deleted) => {
 		if (err) console.log(err);
 		req.flash(
 			"success_msg",
 			`Profile with username ${deleted.username} has been deleted`
 		);
-		res.redirect("back");
+		res.redirect("/");
 	});
-	// console.log("okej du vill radera");
 });
 
 router.post(

@@ -1,13 +1,17 @@
-const uri = "http://localhost:3000/";
+// const uri = "http://localhost:3000/";
+const uri = "https://forumplus.herokuapp.com/";
 
-async function deleteProfile() {
-	let action = await fetch(uri + "profile", {
-		method: "delete",
-		mode: "cors",
-		credentials: "same-origin",
-	});
-	let data = await action.json();
-	console.log(data);
+https: async function deleteProfile() {
+	let clicked = 0;
+	clicked++;
+	const deleteBtn = document.querySelector(".delete-profile");
+	// let action = await fetch(uri + "profile", {
+	// 	method: "delete",
+	// 	mode: "cors",
+	// 	credentials: "same-origin",
+	// });
+	// let data = await action.json();
+	console.log("wasspu");
 }
 
 function toggleCategories() {

@@ -19,7 +19,7 @@ require("./config/passport")(passport);
 mongoose
 	.connect(process.env.DB_CONNECTION_URI, {
 		useNewUrlParser: true,
-		// useUnifiedTopology: true,
+		useUnifiedTopology: true,
 	})
 	.then(() => console.log("MongoDB Connected"))
 	.catch((err) => console.log(err));
@@ -43,7 +43,7 @@ app.use(passport.session());
 
 app.use(flash());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 	res.locals.success_msg = req.flash("success_msg");
 	res.locals.error_msg = req.flash("error_msg");
 	res.locals.error = req.flash("error");
@@ -71,12 +71,12 @@ app.use("/", require("./routes/users"));
 app.use("/posts", require("./routes/posts"));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 	next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
 	// set locals, only providing error in development
 	res.locals.message = err.message;
 	res.locals.error = req.app.get("env") === "development" ? err : {};

@@ -208,7 +208,7 @@ textarea {
     display: block;
     color: #fefefe; }
 
-.submit-btn, .comment-btn {
+.submit-btn, .comment-btn, .delete-btn {
   padding: .5rem .75rem;
   font-size: 1rem;
   background: #F46036;
@@ -220,6 +220,12 @@ textarea {
 
 .comment-btn {
   color: #fefefe; }
+
+.delete-btn {
+  background: red;
+  color: #fefefe;
+  width: auto;
+  margin: 2rem 0; }
 
 main {
   display: flex;
@@ -367,3 +373,15 @@ main {
     background: white; }
   .category__post h3, .category__post p {
     text-align: right; }
+
+.profile-main {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .profile-main h1 {
+    font-size: 1.5rem;
+    color: #fefefe;
+    font-weight: bolder; }
+  .profile-main h2 {
+    font-size: 1.25rem;
+    color: #fefefe; }

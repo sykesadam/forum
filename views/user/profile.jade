@@ -1,9 +1,9 @@
 extends ../layout
 
 block content
-  include ../partials/messages.jade
-  h1 Profile
-  h2= user.username
-  button(onclick="deleteProfile()") Delete
+  main(class="profile-main")
+    h1 Profile
+    h2= user.username
+    button(onclick="deleteProfile()" class="delete-btn delete-profile") Delete
 
-  a(href="/") Startpage
+    include ../partials/messages.jade
