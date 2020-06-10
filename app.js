@@ -8,6 +8,7 @@ const sassMiddleware = require("node-sass-middleware");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require("connect-flash");
+const MongoStore = require("connect-mongo")(session);
 
 require("dotenv").config();
 const app = express();
@@ -34,6 +35,7 @@ app.use(
 		secret: "secret",
 		resave: true,
 		saveUninitialized: true,
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
 	})
 );
 
